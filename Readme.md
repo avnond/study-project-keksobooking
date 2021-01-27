@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Анна Карелина](https://up.htmlacademy.ru/javascript/22/user/1585025).
-* Наставник: `Неизвестно`.
+* Наставник: [Михаил Кислый](https://htmlacademy.ru/profile/smart-grizzly).
 
 ---
 
