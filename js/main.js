@@ -26,7 +26,7 @@ const TIME_POINTS = [
   '14:00',
 ];
 
-const HOUSE_DESCRIPTION = ['Чистые помещения, открытая веранда, вежливые соседи', 'Крыша немного подтекает, но это создаёт особый шарм' , 'Дом для приятного отдыха. Можно с детьми и животными', 'Развитая инфраструктура: рядом лес, парк и Пятёрочка'];
+const HOUSE_DESCRIPTIONS = ['Чистые помещения, открытая веранда, вежливые соседи', 'Крыша немного подтекает, но это создаёт особый шарм' , 'Дом для приятного отдыха. Можно с детьми и животными', 'Развитая инфраструктура: рядом лес, парк и Пятёрочка'];
 const HOUSE_FEATURES = ['wifi', 'dishwasher', 'parking', 'washer', 'elevator', 'conditioner'];
 
 const HOUSE_PHOTOS = [
@@ -89,7 +89,7 @@ const getAd = () => {
       checkin: getRandomArrayElement(TIME_POINTS),
       checkout: getRandomArrayElement(TIME_POINTS),
       features: getRandomlySlicedArray(HOUSE_FEATURES),
-      description: getRandomArrayElement(HOUSE_DESCRIPTION),
+      description: getRandomArrayElement(HOUSE_DESCRIPTIONS),
       photos: getRandomlySlicedArray(HOUSE_PHOTOS),
     },
     location: {
