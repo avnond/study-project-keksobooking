@@ -101,6 +101,7 @@ const getAd = () => {
   return ad;
 }
 
-for (let i = 1; i < 11; i++) {
-  console.log(getAd());
+const getArray = (length = 0, cb) => {
+  return Array.from({ length: length }, cb);
 }
+console.log(getArray(10, getAd));
