@@ -64,7 +64,7 @@ const getArray = (length = 0, cb) => {
   newArray= Array.from({ length: length }, cb);
   return newArray;
 }
-getArray(getArray(10, getAd));
+getArray(10, getAd);
 
 // // Задание 5
 export let containerMap = document.getElementById('map-canvas');
