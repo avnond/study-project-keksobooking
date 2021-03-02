@@ -1,5 +1,4 @@
-import {containerMap} from './main.js'
-import { getRandomArrayElement } from './util.js';
+import {containerMap} from './main.js';
 
 export const addToContainer = function (element) {
   containerMap.appendChild(element);
@@ -7,7 +6,6 @@ export const addToContainer = function (element) {
 
 export const addStringToElement = function (str, element) {
   element.textContent = str;
-  console.log(element);
   addToContainer(element);
 }
 
@@ -24,13 +22,11 @@ export const defineHouseType = function (type, element) {
   if (type === 'palace') {
     element.textContent = 'Дворец';
   }
-  console.log(element);
   addToContainer(element);
 }
 
 export const createAvatarScr = function (randomSrc, element) {
   element.src = randomSrc;
-  console.log(element);
   addToContainer(element);
 }
 

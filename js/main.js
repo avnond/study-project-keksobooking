@@ -64,11 +64,10 @@ const getArray = (length = 0, cb) => {
   newArray= Array.from({ length: length }, cb);
   return newArray;
 }
-console.log(getArray(10, getAd));
+getArray(getArray(10, getAd));
 
 // // Задание 5
 export let containerMap = document.getElementById('map-canvas');
-console.log(containerMap);
 let newCardTemplate = document.querySelector('#card').content;
 let cardAvatar = newCardTemplate.querySelector('.popup__avatar');
 let cardTitle = newCardTemplate.querySelector('.popup__title');
