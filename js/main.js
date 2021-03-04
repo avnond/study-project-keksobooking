@@ -33,6 +33,8 @@ import {
   addImgChildWithAttributes
 } from './generate-similar-elements.js';
 
+import './form.js';
+
 const getAd = () => {
   const ad = {
     author: {
@@ -99,3 +101,6 @@ addStringToElement('Заезд после ' + newArray[0].offer.checkin + ' ,в�
 addChildWithTwoClasses('li', 'popup__feature', featureClasses, cardFeatures, newArray[0].offer.features);
 addStringToElement(newArray[0].offer.description, cardDescription);
 addImgChildWithAttributes('img', '.popup-photo', cardPhotos, newArray[0].offer.photos);
+
+//Задание 5.2
+
