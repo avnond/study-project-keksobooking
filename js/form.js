@@ -1,17 +1,17 @@
-const valuesOfPriceAndRooms = {
+export const valuesOfPriceAndRooms = {
   bungalow: '0',
   flat: '1000',
   house: '5000',
   palace: '10000',
 }
 
-let adTypeInput = document.querySelector('#type');
-let adPriceInput = document.querySelector('#price');
+export let adTypeInput = document.querySelector('#type');
+export let adPriceInput = document.querySelector('#price');
 
-let adTimeinInput = document.querySelector('#timein');
-let adTimeoutInput = document.querySelector('#timeout');
+export let adTimeinInput = document.querySelector('#timein');
+export let adTimeoutInput = document.querySelector('#timeout');
 
-const defineValuesAndPrice = function (types) {
+export const defineValuesAndPrice = function (types) {
   if (adTypeInput.value === 'bungalow'){
     adPriceInput.setAttribute('placeholder', types.bungalow);
     adPriceInput.min = types.bungalow;

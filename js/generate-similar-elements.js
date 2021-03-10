@@ -1,7 +1,7 @@
-import {containerMap} from './main.js';
+import {templateContainer} from './main.js';
 
 export const addToContainer = function (element) {
-  containerMap.appendChild(element);
+  templateContainer.appendChild(element);
 }
 
 export const addStringToElement = function (str, element) {
@@ -60,3 +60,4 @@ export const addImgChildWithAttributes = function (childElement, childClass, par
 export const removeAllChildren = function (parent) {
   parent.innerHTML = '';
 }
+
