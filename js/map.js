@@ -1,9 +1,15 @@
+
+import {
+  coordinatesArrayX,
+  coordinatesArrayY
+} from './generate-cards.js';
+
 /* global L:readonly */
 const map = L.map('map-canvas')
   .setView({
     lat: 35.68951,
     lng: 139.69171,
-  }, 10);
+  }, 12);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -13,12 +19,18 @@ L.tileLayer(
 ).addTo(map);
 
 const mainPinIcon = L.icon({
-  iconUrl: '/img/main-pin.svg',
-  iconSize: [40, 50],
-  iconAnchor: [20, 50],
+  iconUrl: 'img/main-pin.svg',
+  iconSize: [52, 52],
+  iconAnchor: [26, 52],
 });
 
-const marker = L.marker(
+const extraPinIcon = L.icon({
+  iconUrl: 'img/pin.svg',
+  iconSize: [52, 52],
+  iconAnchor: [26, 52],
+});
+
+const mainPinMarker = L.marker(
   {
     lat: 35.68951,
     lng: 139.69171,
@@ -28,13 +40,32 @@ const marker = L.marker(
     icon: mainPinIcon,
   },
 );
-marker.addTo(map);
+
+mainPinMarker.on('moveend', () => {
+  let coordinateX = mainPinMarker._latlng.lat;
+  let coordinateY = mainPinMarker._latlng.lng;
+  addressInput.value = coordinateX.toFixed(5) + ' , ' + coordinateY.toFixed(5);
+});
+
+mainPinMarker.addTo(map);
 
 let addressInput = document.querySelector('#address');
 addressInput.value = map._lastCenter.lat + ' , ' + map._lastCenter.lng;
 
-marker.on('moveend', () => {
-  let coordinateX = marker._latlng.lat;
-  let coordinateY = marker._latlng.lng;
-  addressInput.value = coordinateX.toFixed(5) + ' , ' + coordinateY.toFixed(5);
-});
+
+export const createCustomPopups = (dataArray, cardsArray) => {
+  console.log(cardsArray[1])
+  for (let i = 0; i < dataArray.length; i++) {
+    const extraPoint = L.marker(
+      {
+        lat: coordinatesArrayX[i],
+        lng: coordinatesArrayY[i],
+      },
+      {
+        icon: extraPinIcon,
+      },
+    );
+    extraPoint.bindPopup(cardsArray[i]);
+    extraPoint.addTo(map);
+  }
+};
