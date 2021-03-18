@@ -57,7 +57,6 @@ export const createRandomMapPoints = function (list) {
     addStringToElement(randomAdsArray[i].offer.description, cardDescription, containers[i]);
     let cardPhotos = templateContainer.querySelector('.popup__photos').cloneNode(true);
     addImgChildWithAttributes('img', '.popup-photo', cardPhotos, randomAdsArray[i].offer.photos, containers[i]);
-    console.log(containers[i]);
   }
 };
 createRandomMapPoints(randomAdsArray);

@@ -11,4 +11,3 @@ import {
 
 
 createCustomPopups(randomAdsArray, containers);
-console.log(containers);

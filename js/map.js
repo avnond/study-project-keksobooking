@@ -54,7 +54,6 @@ addressInput.value = map._lastCenter.lat + ' , ' + map._lastCenter.lng;
 
 
 export const createCustomPopups = (dataArray, cardsArray) => {
-  console.log(cardsArray[1])
   for (let i = 0; i < dataArray.length; i++) {
     const extraPoint = L.marker(
       {
