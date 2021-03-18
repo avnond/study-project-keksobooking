@@ -1,15 +1,13 @@
-import {containerMap} from './main.js';
-
-export const addToContainer = function (element) {
-  containerMap.appendChild(element);
+export const addToContainer = function (element, container) {
+  container.appendChild(element);
 }
 
-export const addStringToElement = function (str, element) {
+export const addStringToElement = function (str, element, container) {
   element.textContent = str;
-  addToContainer(element);
+  addToContainer(element, container);
 }
 
-export const defineHouseType = function (type, element) {
+export const defineHouseType = function (type, element, container) {
   if (type === 'flat') {
     element.textContent = 'Квартира';
   }
@@ -22,15 +20,10 @@ export const defineHouseType = function (type, element) {
   if (type === 'palace') {
     element.textContent = 'Дворец';
   }
-  addToContainer(element);
+  addToContainer(element, container);
 }
 
-export const createAvatarScr = function (randomSrc, element) {
-  element.src = randomSrc;
-  addToContainer(element);
-}
-
-export const addChildWithTwoClasses = function (childElement, childClass1, classArray, parent, randomArr) {
+export const addChildWithTwoClasses = function (childElement, childClass1, classArray, parent, randomArr, container) {
   removeAllChildren(parent);
   for (let i = 0; i < randomArr.length; i++){
     let newChild = document.createElement(childElement);
@@ -40,10 +33,10 @@ export const addChildWithTwoClasses = function (childElement, childClass1, class
     }
     parent.appendChild(newChild);
   }
-  addToContainer(parent);
+  addToContainer(parent, container);
 }
 
-export const addImgChildWithAttributes = function (childElement, childClass, parent, randomSrcArr) {
+export const addImgChildWithAttributes = function (childElement, childClass, parent, randomSrcArr, container) {
   removeAllChildren(parent);
   for (let i = 0; i < randomSrcArr.length; i++){
     let newChild = document.createElement(childElement);
@@ -54,9 +47,10 @@ export const addImgChildWithAttributes = function (childElement, childClass, par
     newChild.alt = 'Фотография жилья';
     parent.appendChild(newChild);
   }
-  addToContainer(parent);
+  addToContainer(parent, container);
 }
 
 export const removeAllChildren = function (parent) {
   parent.innerHTML = '';
 }
+
