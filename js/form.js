@@ -13,8 +13,13 @@ export let adTimeoutInput = document.querySelector('#timeout');
 
 export let adRoomsInput = document.querySelector('#room_number');
 export let adCapacityInput = document.querySelector('#capacity');
-export let valuesOfRooms = adRoomsInput.querySelectorAll('option');
 export let valuesOfCapacity = adCapacityInput.querySelectorAll('option');
+export let roomsType = {
+  oneRoom: 1,
+  twoRoom: 2,
+  threeRoom: 3,
+  oneHundredRoom: 100,
+}
 
 export const defineValuesAndPrice = function (types) {
   if (adTypeInput.value === 'bungalow'){
@@ -48,19 +53,19 @@ adTimeoutInput.addEventListener('click', function() {
 });
 
 export const defineRoomsAndCapacity = function () {
-  if (adRoomsInput.value === '1'){
+  if (adRoomsInput.value == roomsType.oneRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].setAttribute('disabled', 'disabled');
     }
     valuesOfCapacity[2].setAttribute('selected', 'selected')
     valuesOfCapacity[2].removeAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value === '2'){
+  if (adRoomsInput.value == roomsType.twoRoom){
     valuesOfCapacity[1].setAttribute('selected', 'selected');
     valuesOfCapacity[0].setAttribute('disabled', 'disabled');
     valuesOfCapacity[3].setAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value === '3'){
+  if (adRoomsInput.value == roomsType.threeRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].removeAttribute('selected', 'selected');
       valuesOfCapacity[i].removeAttribute('disabled', 'disabled');
@@ -68,7 +73,7 @@ export const defineRoomsAndCapacity = function () {
     valuesOfCapacity[2].setAttribute('selected', 'selected');
     valuesOfCapacity[3].setAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value === '100'){
+  if (adRoomsInput.value == roomsType.oneHundredRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].setAttribute('disabled', 'disabled');
     }
