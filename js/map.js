@@ -1,15 +1,13 @@
 
-import {
-  coordinatesArrayX,
-  coordinatesArrayY
-} from './generate-cards.js';
-
 /* global L:readonly */
-const map = L.map('map-canvas')
+export let tokioCenterLat = 35.68951;
+export let tokioCenterLng = 139.69171;
+
+export const map = L.map('map-canvas')
   .setView({
-    lat: 35.68951,
-    lng: 139.69171,
-  }, 12);
+    lat: tokioCenterLat,
+    lng: tokioCenterLng,
+  }, 10);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -30,16 +28,19 @@ const extraPinIcon = L.icon({
   iconAnchor: [26, 52],
 });
 
-const mainPinMarker = L.marker(
+export const mainPinMarker = L.marker(
   {
-    lat: 35.68951,
-    lng: 139.69171,
+    lat: tokioCenterLat,
+    lng: tokioCenterLng,
   },
   {
     draggable: true,
     icon: mainPinIcon,
   },
 );
+
+let addressInput = document.querySelector('#address');
+addressInput.value = map._lastCenter.lat + ' , ' + map._lastCenter.lng;
 
 mainPinMarker.on('moveend', () => {
   let coordinateX = mainPinMarker._latlng.lat;
@@ -49,16 +50,12 @@ mainPinMarker.on('moveend', () => {
 
 mainPinMarker.addTo(map);
 
-let addressInput = document.querySelector('#address');
-addressInput.value = map._lastCenter.lat + ' , ' + map._lastCenter.lng;
-
-
 export const createCustomPopups = (dataArray, cardsArray) => {
   for (let i = 0; i < dataArray.length; i++) {
     const extraPoint = L.marker(
       {
-        lat: coordinatesArrayX[i],
-        lng: coordinatesArrayY[i],
+        lat: dataArray[i].location.lat,
+        lng: dataArray[i].location.lng,
       },
       {
         icon: extraPinIcon,
