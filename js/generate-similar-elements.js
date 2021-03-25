@@ -1,11 +1,15 @@
 export const addToContainer = function (element, container) {
   container.appendChild(element);
-}
+};
+
+export const removeAllChildren = function (parent) {
+  parent.innerHTML = '';
+};
 
 export const addStringToElement = function (str, element, container) {
   element.textContent = str;
   addToContainer(element, container);
-}
+};
 
 export const defineHouseType = function (type, element, container) {
   if (type === 'flat') {
@@ -21,7 +25,7 @@ export const defineHouseType = function (type, element, container) {
     element.textContent = 'Дворец';
   }
   addToContainer(element, container);
-}
+};
 
 export const addChildWithTwoClasses = function (childElement, childClass1, classArray, parent, randomArr, container) {
   removeAllChildren(parent);
@@ -34,7 +38,7 @@ export const addChildWithTwoClasses = function (childElement, childClass1, class
     parent.appendChild(newChild);
   }
   addToContainer(parent, container);
-}
+};
 
 export const addImgChildWithAttributes = function (childElement, childClass, parent, randomSrcArr, container) {
   removeAllChildren(parent);
@@ -48,9 +52,5 @@ export const addImgChildWithAttributes = function (childElement, childClass, par
     parent.appendChild(newChild);
   }
   addToContainer(parent, container);
-}
-
-export const removeAllChildren = function (parent) {
-  parent.innerHTML = '';
-}
+};
 
