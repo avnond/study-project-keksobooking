@@ -102,19 +102,19 @@ adTimeoutInput.addEventListener('click', function() {
 });
 
 const defineRoomsAndCapacity = function () {
-  if (adRoomsInput.value == roomsType.oneRoom){
+  if (adRoomsInput.value === roomsType.oneRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].setAttribute('disabled', 'disabled');
     }
     valuesOfCapacity[2].setAttribute('selected', 'selected')
     valuesOfCapacity[2].removeAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value == roomsType.twoRoom){
+  if (adRoomsInput.value === roomsType.twoRoom){
     valuesOfCapacity[1].setAttribute('selected', 'selected');
     valuesOfCapacity[0].setAttribute('disabled', 'disabled');
     valuesOfCapacity[3].setAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value == roomsType.threeRoom){
+  if (adRoomsInput.value === roomsType.threeRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].removeAttribute('selected', 'selected');
       valuesOfCapacity[i].removeAttribute('disabled', 'disabled');
@@ -122,7 +122,7 @@ const defineRoomsAndCapacity = function () {
     valuesOfCapacity[2].setAttribute('selected', 'selected');
     valuesOfCapacity[3].setAttribute('disabled', 'disabled');
   }
-  if (adRoomsInput.value == roomsType.oneHundredRoom){
+  if (adRoomsInput.value === roomsType.oneHundredRoom){
     for (let i = 0; i <valuesOfCapacity.length; i++){
       valuesOfCapacity[i].setAttribute('disabled', 'disabled');
     }

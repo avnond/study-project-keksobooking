@@ -17,3 +17,5 @@ fetch('https://22.javascript.pages.academy/keksobooking/data')
   });
 
 setAdFormSubmit(showSuccessSubmitActions, showError);
+
+// 1234
