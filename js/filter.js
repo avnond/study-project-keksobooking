@@ -108,21 +108,6 @@ const filterAdsByRooms = (list) => {
   }
 }
 
-const filterAdsByGuests = (list) => {
-  if (houseGuestsFilter.value === 'any'){
-    removeAndCreateNewMapPoints(list);
-  }
-  if (houseGuestsFilter.value === '2'){
-    const oneGuest = [];
-    for (let i = 0; i < list.length; i++) {
-      if (list[i].offer.rooms === 2){
-        oneGuest.push(list[i]);
-      }
-    }
-    removeAndCreateNewMapPoints(oneGuest);
-  }
-}
-
 fetch('https://22.javascript.pages.academy/keksobooking/data')
   .then((response) => response.json())
   .then((data) => {
@@ -134,8 +119,5 @@ fetch('https://22.javascript.pages.academy/keksobooking/data')
     });
     houseRoomsFilter.addEventListener('change', function() {
       filterAdsByRooms(data);
-    });
-    houseGuestsFilter.addEventListener('change', function() {
-      filterAdsByType(data);
     });
   });
