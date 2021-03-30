@@ -73,7 +73,7 @@ const filterAdsByPrice = (list) => {
     }
     removeAndCreateNewMapPoints(highPrice);
   }
-}
+};
 
 const filterAdsByRooms = (list) => {
   if (houseRoomsFilter.value === 'any'){
@@ -106,7 +106,7 @@ const filterAdsByRooms = (list) => {
     }
     removeAndCreateNewMapPoints(threeRooms);
   }
-}
+};
 
 fetch('https://22.javascript.pages.academy/keksobooking/data')
   .then((response) => response.json())
