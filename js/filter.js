@@ -4,7 +4,6 @@ import {createCustomPopups, removeAllMarkers} from './map.js';
 let houseTypesFilter = document.querySelector('#housing-type');
 let housePriceFilter = document.querySelector('#housing-price');
 let houseRoomsFilter = document.querySelector('#housing-rooms');
-let houseGuestsFilter = document.querySelector('#housing-guests');
 
 const removeAndCreateNewMapPoints = (arrayTypeOnly) => {
   removeAllMarkers();
@@ -73,7 +72,7 @@ const filterAdsByPrice = (list) => {
     }
     removeAndCreateNewMapPoints(highPrice);
   }
-};
+}
 
 const filterAdsByRooms = (list) => {
   if (houseRoomsFilter.value === 'any'){
@@ -106,7 +105,7 @@ const filterAdsByRooms = (list) => {
     }
     removeAndCreateNewMapPoints(threeRooms);
   }
-};
+}
 
 fetch('https://22.javascript.pages.academy/keksobooking/data')
   .then((response) => response.json())
