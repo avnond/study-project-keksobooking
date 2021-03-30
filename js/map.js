@@ -1,8 +1,9 @@
 
+
 /* global L:readonly */
 export let tokioCenterLat = 35.68951;
 export let tokioCenterLng = 139.69171;
-
+let markers = [];
 export const map = L.map('map-canvas')
   .setView({
     lat: tokioCenterLat,
@@ -51,6 +52,7 @@ mainPinMarker.on('moveend', () => {
 mainPinMarker.addTo(map);
 
 export const createCustomPopups = (dataArray, cardsArray) => {
+  markers = [];
   for (let i = 0; i < dataArray.length; i++) {
     const extraPoint = L.marker(
       {
@@ -62,6 +64,12 @@ export const createCustomPopups = (dataArray, cardsArray) => {
       },
     );
     extraPoint.bindPopup(cardsArray[i]);
+    markers.push(extraPoint);
     extraPoint.addTo(map);
   }
+};
+
+export const removeAllMarkers = () => {
+  markers.forEach((marker) => marker.remove())
+  markers = [];
 };
